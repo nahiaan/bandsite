@@ -1,0 +1,200 @@
+/*is like global css, put resets, mixins, and variables.
+example mixin:
+@mixin default-box ($color, $borderColor) {
+    color: $color;
+    border: 1px solid $borderColor;
+    clear: both;
+    display: block;
+    margin: 5px 0;
+    padding: 5px 10px;
+}
+{box-sizing: border-box;
+  ma
+
+
+$base-color: #323232;
+$secondary-color: #afafaf $accent-color;
+#FFFFFF
+
+$hover-color: #000000 
+$divider-color: #e1e1e1
+$background-color: #FAFAFA
+
+/*
+desktop and tablet font
+
+dsk-subheader-font: 
+dsk-body-font
+dsk-footer-font
+dsk-buttons-font
+dsk-header-font
+dsk-sec-header-font*/
+
+//font faces:
+@font-face {
+  font-family: "AvenirNext-demi";
+  src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "AvenirNext-bold";
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "AvenirNext-regular";
+  src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*page header*/
+$h1-font-size: 24px;
+$h1-line-height: 32px;
+$h1-font-weight: 700;
+/*section header*/
+$h2-font-size: 24px;
+$h2-line-height: 32px;
+$h2-font-weight: 700;
+/*subheader*/
+$h3-font-size: 14px;
+$h3-line-height: 22px;
+$h3-font-weight: 600;
+/*body copy*/
+$h4-font-size: 13px;
+$h4-line-height: 18px;
+$h4-font-weight: 400;
+/*footer copy*/
+$h5-font-size: 13px;
+$h5-line-height: 18px;
+$h5-font-weight: 400;
+/*labels and buttons*/
+$h6-font-size: 10px;
+$h6-line-height: 20px;
+$h6-font-weight: 700;
+
+/*media queries*/
+$tablet-width: 768px;
+$desktop-width: 1279px;
+
+@mixin mobile {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin mob-header-font($h1-font-size, $h1-line-height, $h1-font-weight) {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+}
+
+@mixin mob-sec-header-font($h2-font-size, $h2-line-height, $h2-font-weight) {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+}
+
+@mixin mob-subheader-font($h3-font-size, $h3-line-height, $h3-font-weight) {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+}
+
+@mixin mob-body-font($h4-font-size, $h4-line-height, $h4-font-weight) {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+}
+
+@mixin mob-footer-font($h5-font-size, $h5-line-height, $h5-font-weight) {
+  font-size: $h5-font-size;
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+}
+
+@mixin mob-buttons-font($h6-font-size, $h6-line-height, $h6-font-weight) {
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*need a mixin for my section styling perhaps, 16px padding left and right after the hero image.*/
+
+//colours
+$base-color: #323232;
+$secondary-color: #afafaf;
+$accent-color: #ffffff;
+
+$hover-color: #000000;
+$divider-color: #e1e1e1;
+$background-color: #fafafa;
+
+/*FONT VARIABLES*/
+
+// This is fine, variables can be changed if needed and these are used within the mixins
+/*page header*/
+$h1-font-size: 24px;
+$h1-line-height: 32px;
+$h1-font-weight: 700;
+/*section header*/
+$h2-font-size: 24px;
+$h2-line-height: 32px;
+$h2-font-weight: 700;
+/*subheader*/
+$h3-font-size: 14px;
+$h3-line-height: 22px;
+$h3-font-weight: 600;
+/*body copy*/
+$h4-font-size: 13px;
+$h4-line-height: 18px;
+$h4-font-weight: 400;
+/*footer copy*/
+$h5-font-size: 13px;
+$h5-line-height: 18px;
+$h5-font-weight: 400;
+/*labels and buttons*/
+$h6-font-size: 10px;
+$h6-line-height: 20px;
+$h6-font-weight: 700;
+/*FONT MIXINS*/
+
+// The below is a template that can be reused to create the font-size, line-height, font-weight for an element for e.g. h1 or h2
+@mixin font-template($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+/*examples of using mixins*/
+h1 {
+  @include font-template($h1-font-size, $h1-line-height, $h1-font-weight);
+}
+// Section Header
+/*h2 {
+  @include font-source(-font-size, -line-height, -font-weight);
+
+  h6 {
+  @include font-source($h6-font-size, $h6-line-height, -weight);
+}
+}*/

@@ -1,0 +1,338 @@
+@use "partials/breakpoints" as breakpoint;
+@use "partials/base" as *;
+
+//global resets
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: AvenirNext-regular;
+}
+
+//tablet desktop nav
+@include breakpoint.desktab {
+  .nav {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    background-color: $base-color;
+    padding: 25px;
+
+    &__list {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+    &__link:hover {
+      border-bottom: 3px solid $accent-color;
+      padding-bottom: 20px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $accent-color;
+      margin-left: 10px;
+    }
+    &__title {
+      color: $accent-color;
+      font-family: avenirnext-regular;
+      font-weight: 100;
+      font-size: 22px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    &__biography {
+      font-family: AvenirNext-demi;
+    }
+    &__shows {
+      margin-left: 25px;
+      color: $divider-color;
+    }
+  }
+}
+
+// mobile Nav bar
+@include breakpoint.mobile {
+  .nav {
+    background-color: $base-color;
+    &__title {
+      padding-top: 5%;
+      width: 40%;
+      margin-left: 30%;
+    }
+
+    &__item {
+      width: 50vw;
+      padding-bottom: 25px;
+      padding-top: 20px;
+    }
+
+    &__item:hover {
+      border-bottom: 4px solid $background-color;
+    }
+
+    &__biography {
+      border-bottom: 4px solid $background-color;
+      font-family: avenirnext-demi;
+    }
+
+    &__list {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__link {
+      color: $background-color;
+      text-decoration: none;
+      font-size: 22px;
+      border-bottom: 3px solid transparent;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+//Nav bar
+
+//hero image section
+.hero {
+  position: relative;
+  &__image {
+    max-width: 100%;
+    height: auto;
+    // position: absolute;
+  }
+  &__title {
+    position: absolute;
+    color: $accent-color;
+    font-family: avenirNext-demi;
+    margin-top: 30%;
+    padding-left: 5%;
+    font-size: 7vw;
+    // @include font-template {
+    //   font-size: 100px;
+    //   line-height: $h2-line-height;
+    //   font-weight: $h2-font-weight;
+    // }
+  }
+
+  &__opacity {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    // height: calc((1960px / 2950px) * 100vw);
+    // position: absolute;
+  }
+  // &-image__wrapper {
+  //   position: relative;
+  // }
+}
+
+//hero image section
+
+//article content//
+.article {
+  padding: 16px;
+  &__content {
+    line-height: 22px;
+  }
+}
+.article-img {
+  max-width: 100%;
+  height: auto;
+  padding: 16px;
+}
+
+.article__content--quote {
+  line-height: 30px;
+  font-family: avenirnext-demi;
+  font-size: 18px;
+  color: $base-color;
+}
+
+.article__content--title {
+  font-size: 18px;
+  padding-top: 24px;
+}
+//article content//
+@include breakpoint.desktab {
+  .article {
+    &-img__container {
+      padding: 0 215px;
+    }
+    &__title {
+      font-family: avenirnext-demi;
+      font-size: 2.8vw;
+      color: $base-color;
+      padding: 40px 0 40px 150px;
+    }
+    &__wrapper {
+      display: flex;
+      padding: 10px;
+      width: 70%;
+      align-items: center;
+      margin: 0 auto;
+    }
+    &__content {
+      margin-left: 30px;
+      color: $base-color;
+      line-height: 24px;
+    }
+
+    &__content--title {
+      padding-top: 50px;
+      // padding-left: 250px;
+      padding-left: 17.1vw;
+      font-family: avenirnext-demi;
+      font-size: 26px;
+      color: $base-color;
+    }
+
+    &__content--quote {
+      padding: 10px 230px;
+      width: 92%;
+      font-size: 23px;
+      line-height: $h1-line-height;
+    }
+
+    &__quote--author {
+      padding: 15px 232px;
+      width: 92%;
+      font-size: 17px;
+      font-family: avenirnext-demi;
+      color: $base-color;
+      line-height: $h1-line-height;
+    }
+  }
+}
+//article content//
+
+//gallery
+@include breakpoint.desktab {
+  .gallery {
+    background-color: $divider-color;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 18vw);
+    grid-gap: 15px;
+  }
+}
+
+.gallery {
+  padding: 16px;
+  background-color: $background-color;
+  height: max-content;
+  &__image {
+    max-width: 100%;
+    height: auto;
+    padding-top: 16px;
+  }
+}
+.gallery__title {
+  font-size: 30px;
+  font-family: AvenirNext-demi;
+  color: $base-color;
+  padding-top: 24px;
+  padding-left: 16px;
+  background-color: $background-color;
+}
+
+@include breakpoint.desktop {
+  .gallery {
+    padding: 50px 120px;
+    grid-template-rows: repeat(3, 16vw);
+  }
+}
+
+@include breakpoint.tablet {
+  .gallery {
+    padding: 40px 70px;
+    grid-template-rows: repeat(3, 15.5vw);
+  }
+}
+//gallery
+
+//footer
+.footer {
+  background-color: $base-color;
+  color: $accent-color;
+  font-size: 16px;
+  padding-top: 20px;
+
+  &__facebook--logo {
+    padding-left: 10px;
+  }
+
+  &__twitter--logo {
+    padding-left: 10px;
+  }
+
+  &__container {
+    padding: 16px;
+  }
+  &-contact__info {
+    padding-bottom: 20px;
+  }
+
+  &-contact__list {
+    list-style-type: none;
+  }
+  &__title {
+    margin: 0 125px 0 60px;
+  }
+}
+
+//footer
+
+@include breakpoint.desktab {
+  .footer {
+    &-contact__info {
+      margin-right: 20px;
+      margin-left: 60px;
+      font-size: 14px;
+    }
+    &__instagram--logo {
+      width: 30px;
+      height: 30px;
+    }
+
+    &__facebook--logo {
+      width: 30px;
+      height: 30px;
+    }
+
+    &__twitter--logo {
+      width: 40px;
+      height: 30px;
+    }
+
+    &__title {
+      font-family: avenirnext-demi;
+      font-size: 200%;
+    }
+    &-contact__item {
+      padding-bottom: 20px;
+    }
+    &-contact__item--bold {
+      font-family: avenirnext-demi;
+      padding-bottom: 20px;
+    }
+  }
+  .footer__container {
+    display: flex;
+  }
+
+  .footer__social {
+    display: flex;
+    flex-flow: column;
+    &--logos {
+      display: flex;
+      padding: 16px;
+    }
+  }
+}

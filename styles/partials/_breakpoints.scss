@@ -1,0 +1,27 @@
+/*media query variables */
+$tablet-width: 768px;
+$desktop-width: 1279px;
+
+@mixin mobile {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet-width) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin desktab {
+  @media only screen and (min-width: $tablet-width) {
+    @content;
+  }
+}
