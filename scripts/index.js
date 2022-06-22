@@ -113,16 +113,16 @@ const handleFormSubmit = (submitEvent) => {
 };
 
 renderComments(comments);
-const commentForm = document.querySelector(".comment-form");
+const commentForm = document.querySelector(".form__box");
 commentForm.addEventListener("submit", handleFormSubmit);
 
-//make resuable url variables
-const base_url = "https://project-1-api.herokuapp.com";
-const commentsUrl = "https://project-1-api.herokuapp.com/comments/";
-const showDatesUrl = "https://project-1-api.herokuapp.com/showdates/";
-const API_KEY = "api_key=f33b34df-6637-4d08-bc73-5c370dbe478d";
+// //make resuable url variables
+// const base_url = "https://project-1-api.herokuapp.com";
+// const commentsUrl = "https://project-1-api.herokuapp.com/comments/";
+// const showDatesUrl = "https://project-1-api.herokuapp.com/showdates/";
+// const API_KEY = "api_key=f33b34df-6637-4d08-bc73-5c370dbe478d";
 
-axios.get(`${base_url}/comments?API_KEY`);
+// axios.get(`${base_url}/comments?API_KEY`);
 
 //get request /post request
 
