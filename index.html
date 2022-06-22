@@ -15,24 +15,24 @@
 <body>
 
     <nav class="nav">
-        <img class="nav__title" src="assets/Logo/Logo-bandsite.svg">
+        <a href="index.html"><img class="nav__title" src="assets/Logo/Logo-bandsite.svg" /></a>
         <ul class="nav__list">
-            <li class="nav__item nav__biography"><a class="nav__link nav__biography" href="#">Biography</a></li>
-            <li class="nav__item nav__shows"><a class="nav__link nav__shows" href="#">Shows</a>
+            <li class="nav__item nav__biography"><a class="nav__link nav__biography" href="index.html">Biography</a>
+            </li>
+            <li class="nav__item nav__shows"><a class="nav__link nav__shows" href="pages/shows.html">Shows</a>
             </li>
         </ul>
 
 
     </nav>
     <header class="hero">
-        <div class="hero-img__container">
-            <h1 class="hero__title">The Bees Knees</h1>
-            <div class="hero-image__wrapper">
-                <img class="hero__image" src="assets/Images/hero-bio.jpg" alt="flowers background">
-                <div class="hero__opacity"></div>
+        <section class="hero-img__container">
+            <div class="hero-title__wrapper">
+                <h1 class="hero__title">The Bees Knees</h1>
             </div>
-
-        </div>
+            <div class="hero-image__wrapper">
+            </div>
+        </section>
 
     </header>
 
@@ -120,11 +120,61 @@
         </figure>
     </section>
 
+    <section class="form-wrapper">
+        <form class="form__box">
+            <h1>Join the Conversation</h1>
+            <fieldset class="comment__content">
+                <div class="comment-img__container">
+                    <!-- <img src="assets/Images/Mohan-muruge.jpg" alt="profile Photo"> -->
+                </div>
+                <div class="comment-form__wrapper">
+                    <label for="Name" class="comment__name">NAME</label>
+                    <input type="text" name="fullName" id="fullName" placeholder="Enter your name"
+                        class="comment__name--input" />
+                    <label for="Name" class="comment__box">COMMENT</label>
+                    <textarea name="comment" id="comment-box" placeholder="Add a new comment"
+                        class="comment__text--input"></textarea>
+                    <!-- <div class="comment-btn__wrapper"> -->
+                    <button id="post" class="comment__button">COMMENT</button>
+                    <!-- </div> -->
+                </div>
+            </fieldset>
+            <p class="panel__error panel__error--hide"></p>
+        </form>
+        <section class="comment">
+            <div class="comment__list">
+
+            </div>
+        </section>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!--footer -->
 
     <footer class="footer">
-        <div class="footer__social">
+        <!-- <div class="footer__social">
             <div class="footer__social--logos">
                 <h3 class="footer__title">Get in Touch</h3>
                 <img class="footer__instagram--logo" src="assets/Icons/SVG/Icon-instagram.svg">
@@ -133,11 +183,26 @@
                 <div class="footer__copyright">
                     <img class="footer__logo" src="assets/Logo/Logo-bandsite.svg">
                 </div>
+            </div> -->
+
+        <section class="footer__container">
+            <div class="footer__header">
+                <div class="footer__left">
+                    <h2 class="footer__title">Get in Touch</h2>
+                    <div class="footer__social--logos">
+                        <img class="footer__instagram--logo" src="assets/Icons/SVG/Icon-instagram.svg">
+                        <img class="footer__facebook--logo" src="assets/Icons/SVG/Icon-facebook.svg">
+                        <img class="footer__twitter--logo" src="assets/Icons/SVG/Icon-twitter.svg">
+                    </div>
+                </div>
+                <div class="footer__right">
+                    <div class="footer__copyright">
+                        <img class="footer__logo" src="assets/Logo/Logo-bandsite.svg">
+                    </div>
+                </div>
             </div>
-            <section class="footer__container">
 
-
-
+            <div class="footer__inner">
                 <div class="footer-contact__info">
                     <ul class="footer-contact__list">
                         <li class="footer-contact__item--bold">Cam Adams <br> The Bees Knees Management</li>
@@ -147,6 +212,7 @@
                 </div>
 
                 <div class="footer-contact__info">
+
                     <ul class="footer-contact__list">
                         <li class="footer-contact__item--bold">Pearl Gregg <br> Limitless Artist Group</li>
                         <li class="footer-contact__item">Booking Agent for <br>
@@ -156,6 +222,7 @@
                 </div>
 
                 <div class="footer-contact__info">
+
                     <ul class="footer-contact__list">
                         <li class="footer-contact__item--bold">Carson Whyte <br> ARCH Entertainment</li>
                         <li class="footer-contact__item">Booking Agent for <br>
@@ -163,19 +230,34 @@
                         <li class="footer-contact__item">cwhyte@archentertainment.com</li>
                     </ul>
                 </div>
-                <div class="footer__copyright">
-                    <img class="footer__logo" src="assets/Logo/Logo-bandsite.svg">
-                </div>
-        </div>
-
+            </div>
+            </div>
         </section>
-
+        <div class="footer__copyright">
+            <img class="footer__logo--mobile" src="assets/Logo/Logo-bandsite.svg">
+        </div>
         <ul class="footer__copyright--list">
             <li>Copyright The Bees Knees © 2021 All Rights Reserved </li>
         </ul>
+
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
+
+<div class="divider">
+    <hr>
+</div>
+<div class="comment__wrapper">
+    <div class="comment__image"></div>
+    <div>
+        <h3 class="comment__name"></h3>
+        <span class="comment__date"></span>
+    </div>
+    <div class="comment__text"></div>
+</div>

@@ -198,3 +198,13 @@ h1 {
   @include font-source($h6-font-size, $h6-line-height, -weight);
 }
 }*/
+
+@mixin button-template {
+  background-color: $base-color;
+  color: $background-color;
+  border-radius: 0.3rem;
+  border: 1px solid $base-color;
+  padding: 1rem;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}

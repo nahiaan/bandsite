@@ -1,15 +1,22 @@
 @use "partials/breakpoints" as breakpoint;
 @use "partials/base" as *;
 
-//global resets put in partial
+//global resets //put into partial
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: AvenirNext-regular;
+  font-size: 100%;
 }
-//to do:
-//put nav footer in partial
+
+@include breakpoint.tablet {
+  .nav {
+    display: block;
+    padding: 0;
+  }
+}
+
 @include breakpoint.tablet {
   .nav {
     display: block;
@@ -49,7 +56,7 @@
     }
     &__link:hover {
       border-bottom: 3px solid $accent-color;
-      padding-bottom: 39px;
+      padding-bottom: 20px;
     }
 
     &__link {
@@ -59,7 +66,6 @@
     }
     &__title {
       color: $accent-color;
-      font-family: avenirnext-regular;
       font-weight: 100;
       font-size: 22px;
       padding-left: 30px;
@@ -76,7 +82,7 @@
     &__shows {
       margin-left: 25px;
       color: $divider-color;
-      // margin-top: 1px;
+      margin-top: 1px;
     }
   }
 }
@@ -84,7 +90,6 @@
 @include breakpoint.desktop {
   .nav {
     padding: 37px 37px 37px 100px;
-
     &__biography,
     &__shows {
       font-size: 0.9rem;
@@ -140,221 +145,129 @@
 
 //hero image section
 .hero {
-  &-title__wrapper {
-    display: flex;
-    align-items: center;
+  @include breakpoint.desktab {
+    &-title__wrapper {
+      padding: 2rem;
+      padding-right: 8rem;
+      height: fit-content;
+      z-index: 200;
+    }
+  }
+
+  &__overlay {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
   }
 
   &-img__container {
-    background-image: url(../assets/Images/hero-bio.jpg);
+    background: url(../assets/Images/hero-shows.jpg);
+    background-blend-mode: rgba(0, 0, 0, 0.5);
     background-position: center center;
     background-size: cover;
-    height: 19rem;
+    height: 27rem;
     display: flex;
+    align-items: center;
   }
 
   @include breakpoint.tablet {
     .hero-img__container {
-      height: 45rem;
-      line-height: 2rem;
+      height: 34rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero__soundcloud2 {
+      display: none;
+      width: 8rem;
     }
   }
   @include breakpoint.desktop {
     .hero-img__container {
-      height: 44rem;
-      line-height: 2rem;
+      height: 40rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero__soundcloud1 {
+      display: none;
+      border-radius: 5px;
+    }
+  }
+  @include breakpoint.mobile {
+    .hero__soundcloud2 {
+      display: none;
+    }
+    .hero-title__wrapper {
+      margin: 2rem;
+      z-index: 200;
+    }
+    .hero-img__container {
+      justify-content: center;
+      position: relative;
     }
   }
 
   &__title {
     color: $accent-color;
     font-family: avenirNext-demi;
-    font-size: 8vw;
-    width: 70rem;
-    padding-left: 2rem;
+    font-size: 4.8vw;
+  }
+  &-sub__title {
+    font-size: 2vw;
+    color: $accent-color;
   }
 
-  @include breakpoint.desktop {
+  @include breakpoint.desktab {
+    &__title,
+    &-sub__title {
+      //   padding-left: 10rem;
+      line-height: 6rem;
+    }
+  }
+  @include breakpoint.mobile {
     &__title {
-      padding-left: 10rem;
-      font-size: 4.5vw;
+      font-size: 8vw;
+      line-height: 3rem;
+    }
+    &-sub__title {
+      font-size: 4vw;
+      line-height: 2rem;
+    }
+    &__soundcloud1 {
+      width: 70vw;
+      height: 15vh;
+      border-radius: 5px;
     }
   }
 
-  &__opacity {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100vw;
-    // height: calc((1960px / 2950px) * 100vw);
-  }
   &-image__wrapper {
     width: 0px;
   }
   @include breakpoint.tablet {
     &__title {
-      width: 900px;
       font-size: 9vw;
-      padding-left: 5rem;
-    }
-  }
-}
-
-@include breakpoint.tablet {
-  .hero {
-    &__title {
-      width: 100vw;
+      //   padding-left: 5rem;
     }
   }
 }
 
 //hero image section
-
-//article content//
-.article {
-  padding: 16px;
-  &__content {
-    line-height: 22px;
-    padding-bottom: 1rem;
-  }
-  &-img {
-    max-width: 100%;
-    height: auto;
-    padding: 16px;
-  }
-
-  &__content--quote {
-    line-height: 30px;
-    font-family: avenirnext-demi;
-    font-size: 18px;
-    color: $base-color;
-    padding-bottom: 1rem;
-  }
-  &__content--title {
-    font-size: 18px;
-    padding-top: 24px;
-  }
+//shows
+.show__content {
+  padding: 20px;
 }
 
-//article content//
-@include breakpoint.desktab {
-  .article {
-    &-img__container {
-      padding: 0 115px;
-    }
-    &__title {
-      font-family: avenirnext-demi;
-      font-size: 4.9vw;
-      color: $base-color;
-      padding: 60px 0 40px 90px;
-    }
-    &__wrapper {
-      display: flex;
-      padding: 10px;
-      width: 70%;
-      align-items: center;
-      margin: 0 auto;
-    }
-    &__content {
-      margin-left: 30px;
-      color: $base-color;
-      line-height: 24px;
-    }
-
-    &__content--title {
-      padding-top: 50px;
-      // padding-left: 250px;
-      padding-left: 17.1vw;
-      font-family: avenirnext-demi;
-      font-size: 26px;
-      color: $base-color;
-    }
-
-    &__content--quote {
-      padding: 10px 230px;
-      width: 92%;
-      font-size: 23px;
-      line-height: $h1-line-height;
-    }
-
-    &__quote--author {
-      padding: 15px 232px;
-      width: 92%;
-      font-size: 17px;
-      font-family: avenirnext-demi;
-      color: $base-color;
-      line-height: $h1-line-height;
-    }
-  }
-}
-//article content//
-
-//gallery
-@include breakpoint.desktab {
-  .gallery {
-    background-color: $divider-color;
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: repeat(3, 18vw);
-    // grid-gap: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    &__item {
-      width: 30%;
-      padding-left: 1rem;
-    }
-
-    &__image {
-      padding-top: 0.5rem;
-    }
-  }
-}
-
-@include breakpoint.desktop {
-  .gallery {
-    padding: 50px 120px;
-  }
-}
-
-@include breakpoint.tablet {
-  .gallery {
-    padding: 40px 70px;
-  }
-}
-
-.gallery {
-  background-color: $background-color;
-  height: max-content;
-  &__image {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(100%);
-    transition: 0.4s;
-  }
-
-  //min width on show content subtitle - 150px
-
-  &__image:hover {
-    filter: grayscale(0%);
-  }
-  @include breakpoint.mobile {
-    &__image {
-      padding: 1rem 2.5rem;
-    }
-  }
-}
-.gallery__title {
-  font-size: 30px;
-  font-family: AvenirNext-demi;
-  color: $base-color;
-  padding-top: 24px;
-  padding-left: 16px;
-  background-color: $background-color;
-}
-
-//gallery
+//footer
 
 //footer
 .footer {
@@ -540,7 +453,8 @@
     }
 
     &__header {
-      height: 140px;
+      width: 175px;
+      height: 160px;
     }
 
     &__social--logos,
@@ -560,6 +474,7 @@
     &-contact__item,
     &-contact__item--bold {
       padding-bottom: 1rem;
+      overflow-wrap: anywhere;
     }
 
     &__instagram--logo {
@@ -595,146 +510,145 @@
   }
 }
 
-//form
-@include breakpoint.tablet {
-  .comment__button {
-    width: 20vw;
-  }
-}
+//shows
 
-// @include breakpoint.desktop {
-//   .comment__text--input {
-//     width: 20%;
-//   }
-// }
-
-// .comment__name,
-// .comment__box,
-// .comment__button {
-//   font-family: avenirnext-demi;
-//   padding: 0.5rem 0;
-// }
-.comment__name--input,
-.comment__text--input {
-  background-color: $background-color;
-  width: 80vw;
-  border: solid 2px rgba($color: #000000, $alpha: 0.1);
-  border-radius: 5px;
-  font-size: 2rem;
-}
-.comment__name--input {
-  height: 8vh;
-  margin-bottom: 1rem;
-}
-.comment__text--input {
-  height: 22vh;
-  margin-bottom: 2rem;
-  padding-top: 1rem;
-}
-
-.comment__content {
-  display: flex;
-  justify-content: center;
-  border: 0;
-}
-
-.comment-form__wrapper {
-  display: flex;
-  flex-direction: column;
-  font-family: avenirnext-bold;
-  color: $secondary-color;
-  padding-left: 1rem;
-}
-.comment-img__container {
-  background-image: url(/assets/Images/Mohan-muruge.jpg);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-position: center center;
-  background-size: cover;
-  margin-top: 2rem;
-}
-
-.comment__button {
-  background-color: $base-color;
-  color: $background-color;
-  border-radius: 0.4rem;
-  border: 1px solid $base-color;
-  padding: 1rem;
-  margin-bottom: 10px;
-  font-size: 1.6rem;
-}
-
-::placeholder {
-  color: $base-color;
-  padding-left: 10px;
-  font-size: 1.3rem;
-}
-
-//comment list
-.comments {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-bottom: 1px solid $divider-color;
-  &-inner__wrapper {
+@include breakpoint.desktab {
+  .shows {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    border-bottom: solid 1px $divider-color;
+
+    &__wrapper {
+      min-width: 15vw;
+    }
+
+    &__subtitle {
+      display: none;
+    }
+    &__divider {
+      display: none;
+    }
+    &__content--button {
+      @include button-template;
+      width: 13vw;
+      height: 6.5vh;
+      font-size: 1rem;
+      font-family: AvenirNext-demi;
+      padding: 0%;
+    }
   }
 
-  &-img__wrapper {
-    background-image: url(/assets/Images/light-grey-background.png);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-position: center center;
-    background-size: cover;
-    margin-bottom: auto;
+  @include breakpoint.tablet {
+    .show__subtitles {
+      font-size: 1.3rem;
+    }
+    .shows {
+      font-size: 1.5rem;
+
+      &__wrapper {
+        min-width: 20vw;
+      }
+    }
+  }
+  .show__subtitles {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    color: $base-color;
+    padding: 0 2rem;
+  }
+}
+@include breakpoint.desktop {
+  .shows {
+    &__content--button {
+      width: 12vw;
+    }
+    &__content {
+      width: 70%;
+      margin-left: 25%;
+    }
+  }
+  .show {
+    &__title {
+      font-size: 2rem;
+      margin-left: 8rem;
+      position: absolute;
+    }
+    &__subtitles {
+      justify-content: space-evenly;
+      margin-left: 21rem;
+      padding: 2rem 0 2rem 2rem;
+      font-family: AvenirNext-demi;
+    }
+  }
+}
+
+@include breakpoint.mobile {
+  .shows {
+    font-size: 0.8rem;
+    color: $base-color;
+    font-weight: 100;
+    margin: 1rem;
+    &__title {
+      font-family: avenirnext-demi;
+      margin-left: 1rem;
+    }
+    &__subtitle {
+      color: $secondary-color;
+      font-size: 0.6rem;
+      font-family: avenirnext-demi;
+      line-height: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    &__content--date,
+    &__content--venue,
+    &__content--location {
+      padding-bottom: 1rem;
+    }
+
+    // &__content {
+    //   margin: 2rem;
+    // }
+    &__content--date {
+      font-family: avenirnext-demi;
+    }
+
+    &__divider {
+      margin: 1rem 0;
+      border: 1px solid $divider-color;
+      background-color: $divider-color;
+      width: 100%;
+    }
+
+    &__content--button {
+      @include button-template;
+      font-size: 1rem;
+      width: 60vw;
+      height: 9vh;
+      font-family: avenirnext-demi;
+      padding: 0;
+    }
+  }
+  @include breakpoint.mobile {
+    .show__subtitles {
+      display: none;
+    }
+  }
+}
+
+.show {
+  padding: 1rem;
+
+  &__title {
+    font-family: avenirnext-demi;
+    padding: 2rem 0;
   }
 
-  &-content__wrapper {
-    padding-left: 2rem;
-  }
-
-  &__content--date {
+  &__subtitles {
+    padding-bottom: 2rem;
     color: $secondary-color;
   }
-
-  &__content--author {
-    color: $base-color;
-    font-family: avenirnext-demi;
-    letter-spacing: 0.5px;
-    padding-bottom: 1rem;
-  }
-}
-
-@include breakpoint.desktop {
-  .comments {
-    justify-content: inherit;
-    border-top: solid 1px $divider-color;
-    border-bottom: solid 1px $divider-color;
-  }
-
-  .comment {
-    &__list {
-      width: 550px;
-      margin-left: 30rem;
-      padding-top: 1rem;
-    }
-    &__name--input,
-    &__text--input {
-      width: 40vw;
-    }
-
-    &__button {
-      width: 15vw;
-      margin-left: 22.5rem;
-    }
-  }
-}
-.form__box h1 {
-  padding: 3rem;
-  font-size: 2.2rem;
-  font-family: AvenirNext-demi;
-  color: $base-color;
 }

@@ -89,8 +89,15 @@ h1 {
   margin: 0;
   padding: 0;
   font-family: AvenirNext-regular;
+  font-size: 100%;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .nav {
+    display: block;
+    padding: 0;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .nav {
     display: block;
@@ -125,7 +132,7 @@ h1 {
   }
   .nav__link:hover {
     border-bottom: 3px solid #ffffff;
-    padding-bottom: 39px;
+    padding-bottom: 20px;
   }
   .nav__link {
     text-decoration: none;
@@ -134,7 +141,6 @@ h1 {
   }
   .nav__title {
     color: #ffffff;
-    font-family: avenirnext-regular;
     font-weight: 100;
     font-size: 22px;
     padding-left: 30px;
@@ -149,6 +155,7 @@ h1 {
   .nav__shows {
     margin-left: 25px;
     color: #e1e1e1;
+    margin-top: 1px;
   }
 }
 @media only screen and (min-width: 1279px) {
@@ -196,185 +203,114 @@ h1 {
     letter-spacing: 1px;
   }
 }
-.hero-title__wrapper {
-  display: flex;
-  align-items: center;
+@media only screen and (min-width: 768px) {
+  .hero-title__wrapper {
+    padding: 2rem;
+    padding-right: 8rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    z-index: 200;
+  }
+}
+.hero__overlay {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+}
+.hero__title {
+  margin-bottom: 2rem;
 }
 .hero-img__container {
-  background-image: url(../assets/Images/hero-bio.jpg);
+  background: url(../assets/Images/hero-shows.jpg);
+  background-blend-mode: rgba(0, 0, 0, 0.5);
   background-position: center center;
   background-size: cover;
-  height: 19rem;
+  height: 27rem;
   display: flex;
+  align-items: center;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .hero .hero-img__container {
-    height: 45rem;
-    line-height: 2rem;
+    height: 34rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero .hero__soundcloud2 {
+    display: none;
+    width: 8rem;
   }
 }
 @media only screen and (min-width: 1279px) {
   .hero .hero-img__container {
-    height: 44rem;
-    line-height: 2rem;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero .hero__soundcloud1 {
+    display: none;
+    border-radius: 5px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .hero .hero__soundcloud2 {
+    display: none;
+  }
+  .hero .hero-title__wrapper {
+    margin: 2rem;
+    z-index: 200;
+  }
+  .hero .hero-img__container {
+    justify-content: center;
+    position: relative;
   }
 }
 .hero__title {
   color: #ffffff;
   font-family: avenirNext-demi;
-  font-size: 8vw;
-  width: 70rem;
-  padding-left: 2rem;
+  font-size: 4.8vw;
 }
-@media only screen and (min-width: 1279px) {
-  .hero__title {
-    padding-left: 10rem;
-    font-size: 4.5vw;
+.hero-sub__title {
+  font-size: 2vw;
+  color: #ffffff;
+}
+@media only screen and (min-width: 768px) {
+  .hero__title, .hero-sub__title {
+    line-height: 6rem;
   }
 }
-.hero__opacity {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100vw;
+@media only screen and (max-width: 768px) {
+  .hero__title {
+    font-size: 8vw;
+    line-height: 3rem;
+  }
+  .hero-sub__title {
+    font-size: 4vw;
+    line-height: 2rem;
+  }
+  .hero__soundcloud1 {
+    width: 70vw;
+    height: 15vh;
+    border-radius: 5px;
+  }
 }
 .hero-image__wrapper {
   width: 0px;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .hero__title {
-    width: 900px;
     font-size: 9vw;
-    padding-left: 5rem;
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__title {
-    width: 100vw;
-  }
-}
-.article {
-  padding: 16px;
-}
-.article__content {
-  line-height: 22px;
-  padding-bottom: 1rem;
-}
-.article-img {
-  max-width: 100%;
-  height: auto;
-  padding: 16px;
-}
-.article__content--quote {
-  line-height: 30px;
-  font-family: avenirnext-demi;
-  font-size: 18px;
-  color: #323232;
-  padding-bottom: 1rem;
-}
-.article__content--title {
-  font-size: 18px;
-  padding-top: 24px;
-}
-
-@media only screen and (min-width: 768px) {
-  .article-img__container {
-    padding: 0 115px;
-  }
-  .article__title {
-    font-family: avenirnext-demi;
-    font-size: 4.9vw;
-    color: #323232;
-    padding: 60px 0 40px 90px;
-  }
-  .article__wrapper {
-    display: flex;
-    padding: 10px;
-    width: 70%;
-    align-items: center;
-    margin: 0 auto;
-  }
-  .article__content {
-    margin-left: 30px;
-    color: #323232;
-    line-height: 24px;
-  }
-  .article__content--title {
-    padding-top: 50px;
-    padding-left: 17.1vw;
-    font-family: avenirnext-demi;
-    font-size: 26px;
-    color: #323232;
-  }
-  .article__content--quote {
-    padding: 10px 230px;
-    width: 92%;
-    font-size: 23px;
-    line-height: 32px;
-  }
-  .article__quote--author {
-    padding: 15px 232px;
-    width: 92%;
-    font-size: 17px;
-    font-family: avenirnext-demi;
-    color: #323232;
-    line-height: 32px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .gallery {
-    background-color: #e1e1e1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .gallery__item {
-    width: 30%;
-    padding-left: 1rem;
-  }
-  .gallery__image {
-    padding-top: 0.5rem;
-  }
-}
-@media only screen and (min-width: 1279px) {
-  .gallery {
-    padding: 50px 120px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .gallery {
-    padding: 40px 70px;
-  }
-}
-.gallery {
-  background-color: #fafafa;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.gallery__image {
-  max-width: 100%;
-  height: auto;
-  filter: grayscale(100%);
-  transition: 0.4s;
-}
-.gallery__image:hover {
-  filter: grayscale(0%);
-}
-@media only screen and (max-width: 768px) {
-  .gallery__image {
-    padding: 1rem 2.5rem;
-  }
-}
-
-.gallery__title {
-  font-size: 30px;
-  font-family: AvenirNext-demi;
-  color: #323232;
-  padding-top: 24px;
-  padding-left: 16px;
-  background-color: #fafafa;
+.show__content {
+  padding: 20px;
 }
 
 .footer {
@@ -523,7 +459,8 @@ h1 {
     margin: 0;
   }
   .footer__header {
-    height: 140px;
+    width: 175px;
+    height: 160px;
   }
   .footer__social--logos, .footer__title {
     padding-bottom: 2rem;
@@ -537,6 +474,7 @@ h1 {
   }
   .footer-contact__item, .footer-contact__item--bold {
     padding-bottom: 1rem;
+    overflow-wrap: anywhere;
   }
   .footer__instagram--logo {
     width: 30px;
@@ -564,138 +502,138 @@ h1 {
     width: 30vw;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .comment__button {
-    width: 20vw;
-  }
-}
-.comment__name--input,
-.comment__text--input {
-  background-color: #fafafa;
-  width: 80vw;
-  border: solid 2px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  font-size: 2rem;
-}
-
-.comment__name--input {
-  height: 8vh;
-  margin-bottom: 1rem;
-}
-
-.comment__text--input {
-  height: 22vh;
-  margin-bottom: 2rem;
-  padding-top: 1rem;
-}
-
-.comment__content {
-  display: flex;
-  justify-content: center;
-  border: 0;
-}
-
-.comment-form__wrapper {
-  display: flex;
-  flex-direction: column;
-  font-family: avenirnext-bold;
-  color: #afafaf;
-  padding-left: 1rem;
-}
-
-.comment-img__container {
-  background-image: url(/assets/Images/Mohan-muruge.jpg);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-position: center center;
-  background-size: cover;
-  margin-top: 2rem;
-}
-
-.comment__button {
-  background-color: #323232;
-  color: #fafafa;
-  border-radius: 0.4rem;
-  border: 1px solid #323232;
-  padding: 1rem;
-  margin-bottom: 10px;
-  font-size: 1.6rem;
-}
-
-::-moz-placeholder {
-  color: #323232;
-  padding-left: 10px;
-  font-size: 1.3rem;
-}
-
-:-ms-input-placeholder {
-  color: #323232;
-  padding-left: 10px;
-  font-size: 1.3rem;
-}
-
-::placeholder {
-  color: #323232;
-  padding-left: 10px;
-  font-size: 1.3rem;
-}
-
-.comments {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-bottom: 1px solid #e1e1e1;
-}
-.comments-inner__wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-.comments-img__wrapper {
-  background-image: url(/assets/Images/light-grey-background.png);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-position: center center;
-  background-size: cover;
-  margin-bottom: auto;
-}
-.comments-content__wrapper {
-  padding-left: 2rem;
-}
-.comments__content--date {
-  color: #afafaf;
-}
-.comments__content--author {
-  color: #323232;
-  font-family: avenirnext-demi;
-  letter-spacing: 0.5px;
-  padding-bottom: 1rem;
-}
-
-@media only screen and (min-width: 1279px) {
-  .comments {
-    justify-content: inherit;
-    border-top: solid 1px #e1e1e1;
+@media only screen and (min-width: 768px) {
+  .shows {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
     border-bottom: solid 1px #e1e1e1;
   }
-
-  .comment__list {
-    width: 550px;
-    margin-left: 30rem;
-    padding-top: 1rem;
+  .shows__wrapper {
+    min-width: 15vw;
   }
-  .comment__name--input, .comment__text--input {
-    width: 40vw;
+  .shows__subtitle {
+    display: none;
   }
-  .comment__button {
-    width: 15vw;
-    margin-left: 22.5rem;
+  .shows__divider {
+    display: none;
+  }
+  .shows__content--button {
+    background-color: #323232;
+    color: #fafafa;
+    border-radius: 0.3rem;
+    border: 1px solid #323232;
+    padding: 1rem;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    width: 13vw;
+    height: 6.5vh;
+    font-size: 1rem;
+    font-family: AvenirNext-demi;
+    padding: 0%;
   }
 }
-.form__box h1 {
-  padding: 3rem;
-  font-size: 2.2rem;
-  font-family: AvenirNext-demi;
-  color: #323232;
-}/*# sourceMappingURL=bio.css.map */
+@media only screen and (min-width: 768px) and (min-width: 768px) and (max-width: 1279px) {
+  .show__subtitles {
+    font-size: 1.3rem;
+  }
+
+  .shows {
+    font-size: 1.5rem;
+  }
+  .shows__wrapper {
+    min-width: 20vw;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .show__subtitles {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    color: #323232;
+    padding: 0 2rem;
+  }
+}
+@media only screen and (min-width: 1279px) {
+  .shows__content--button {
+    width: 12vw;
+  }
+  .shows__content {
+    width: 70%;
+    margin-left: 25%;
+  }
+
+  .show__title {
+    font-size: 2rem;
+    margin-left: 8rem;
+    position: absolute;
+  }
+  .show__subtitles {
+    justify-content: space-evenly;
+    margin-left: 21rem;
+    padding: 2rem 0 2rem 2rem;
+    font-family: AvenirNext-demi;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .shows {
+    font-size: 0.8rem;
+    color: #323232;
+    font-weight: 100;
+    margin: 1rem;
+  }
+  .shows__title {
+    font-family: avenirnext-demi;
+    margin-left: 1rem;
+  }
+  .shows__subtitle {
+    color: #afafaf;
+    font-size: 0.6rem;
+    font-family: avenirnext-demi;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .shows__content--date, .shows__content--venue, .shows__content--location {
+    padding-bottom: 1rem;
+  }
+  .shows__content--date {
+    font-family: avenirnext-demi;
+  }
+  .shows__divider {
+    margin: 1rem 0;
+    border: 1px solid #e1e1e1;
+    background-color: #e1e1e1;
+    width: 100%;
+  }
+  .shows__content--button {
+    background-color: #323232;
+    color: #fafafa;
+    border-radius: 0.3rem;
+    border: 1px solid #323232;
+    padding: 1rem;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-size: 1rem;
+    width: 60vw;
+    height: 9vh;
+    font-family: avenirnext-demi;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 768px) and (max-width: 768px) {
+  .show__subtitles {
+    display: none;
+  }
+}
+.show {
+  padding: 1rem;
+}
+.show__title {
+  font-family: avenirnext-demi;
+  padding: 2rem 0;
+}
+.show__subtitles {
+  padding-bottom: 2rem;
+  color: #afafaf;
+}/*# sourceMappingURL=shows.css.map */

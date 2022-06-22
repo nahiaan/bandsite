@@ -1,1 +1,41 @@
 /*global styling for whole site for nav, body, buttons, card section*/
+
+@mixin main-nav-desktab {
+  @media desktab {
+    @media only screen and (min-width: $tablet-width) {
+      @content;
+    }
+  }
+}
+
+@mixin header-nav($height, $linkmargin, $breakpoint: 800px) {
+  height: $height;
+  @media (max-width: $breakpoint) {
+    height: auto;
+  }
+  ul {
+    margin: 0 0 0 0;
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+    li {
+      display: inline-block;
+      margin-left: 30px - $linkmargin;
+      margin-top: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+      a {
+        display: block;
+        line-height: ($height - (2 * $linkmargin));
+        margin-top: $linkmargin;
+        margin-bottom: $linkmargin;
+        padding-left: $linkmargin;
+        padding-right: $linkmargin;
+        @media (max-width: $breakpoint) {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}
