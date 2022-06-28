@@ -3,7 +3,7 @@ $tablet-width: 768px;
 $desktop-width: 1279px;
 
 @mixin mobile {
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     @content;
   }
 }

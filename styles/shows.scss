@@ -1,147 +1,7 @@
 @use "partials/breakpoints" as breakpoint;
 @use "partials/base" as *;
-
-//global resets //put into partial
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: AvenirNext-regular;
-  font-size: 100%;
-}
-
-@include breakpoint.tablet {
-  .nav {
-    display: block;
-    padding: 0;
-  }
-}
-
-@include breakpoint.tablet {
-  .nav {
-    display: block;
-
-    padding: 0;
-
-    &__list {
-      font-size: 25px;
-    }
-    &__title {
-      width: 260px;
-    }
-
-    &__link:hover {
-      padding-bottom: 3.1rem;
-      border-bottom: 5px solid $background-color;
-    }
-  }
-}
-//tablet desktop nav
-
-@include breakpoint.desktab {
-  .nav {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    background-color: $base-color;
-    padding: 37px;
-
-    &__list {
-      display: flex;
-      justify-content: center;
-      list-style-type: none;
-      margin-left: 10px;
-      font-size: 14px;
-      letter-spacing: 0.4px;
-    }
-    &__link:hover {
-      border-bottom: 3px solid $accent-color;
-      padding-bottom: 20px;
-    }
-
-    &__link {
-      text-decoration: none;
-      color: $accent-color;
-      margin-left: 10px;
-    }
-    &__title {
-      color: $accent-color;
-      font-weight: 100;
-      font-size: 22px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-
-    &__biography,
-    &__shows {
-      font-size: 1.3rem;
-    }
-    &__biography {
-      font-family: AvenirNext-demi;
-    }
-    &__shows {
-      margin-left: 25px;
-      color: $divider-color;
-      margin-top: 1px;
-    }
-  }
-}
-
-@include breakpoint.desktop {
-  .nav {
-    padding: 37px 37px 37px 100px;
-    &__biography,
-    &__shows {
-      font-size: 0.9rem;
-    }
-  }
-}
-
-// mobile Nav bar
-@include breakpoint.mobile {
-  .nav {
-    background-color: $base-color;
-    &__title {
-      padding-top: 5%;
-      width: 40%;
-      margin-left: 30%;
-    }
-
-    &__item {
-      width: 50vw;
-      padding-bottom: 25px;
-      padding-top: 20px;
-    }
-
-    &__item:hover {
-      border-bottom: 4px solid $background-color;
-    }
-
-    &__biography {
-      border-bottom: 4px solid $background-color;
-      font-family: avenirnext-demi;
-    }
-
-    &__list {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      list-style-type: none;
-      align-items: center;
-      text-align: center;
-    }
-
-    &__link {
-      color: $background-color;
-      text-decoration: none;
-      font-size: 22px;
-      border-bottom: 3px solid transparent;
-      letter-spacing: 1px;
-    }
-  }
-}
-
-//Nav bar
+@import "partials/components";
+@import "partials/resets.scss";
 
 //hero image section
 .hero {
@@ -171,7 +31,7 @@
     background-blend-mode: rgba(0, 0, 0, 0.5);
     background-position: center center;
     background-size: cover;
-    height: 27rem;
+    height: 32rem;
     display: flex;
     align-items: center;
   }
@@ -190,27 +50,18 @@
       width: 8rem;
     }
   }
-  @include breakpoint.desktop {
-    .hero-img__container {
-      height: 40rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .hero__soundcloud1 {
-      display: none;
-      border-radius: 5px;
-    }
-  }
+
   @include breakpoint.mobile {
     .hero__soundcloud2 {
       display: none;
     }
+
     .hero-title__wrapper {
-      margin: 2rem;
+      margin-left: 5rem;
+      margin-right: 8rem;
       z-index: 200;
     }
+
     .hero-img__container {
       justify-content: center;
       position: relative;
@@ -222,295 +73,93 @@
     font-family: avenirNext-demi;
     font-size: 4.8vw;
   }
+
   &-sub__title {
     font-size: 2vw;
     color: $accent-color;
+    padding-bottom: 1rem;
   }
 
   @include breakpoint.desktab {
     &__title,
     &-sub__title {
-      //   padding-left: 10rem;
-      line-height: 6rem;
+      line-height: 5rem;
+      font-family: avenirnext-demi;
     }
   }
+
   @include breakpoint.mobile {
     &__title {
       font-size: 8vw;
-      line-height: 3rem;
+      line-height: 4rem;
     }
+
     &-sub__title {
-      font-size: 4vw;
+      font-size: 3.5vw;
       line-height: 2rem;
     }
+  }
+
+  @include breakpoint.tablet {
+    &-sub__title {
+      font-size: 3.3vw;
+    }
+  }
+
+  &__soundcloud1 {
+    @include soundcloud-template;
+  }
+
+  @include breakpoint.tablet {
     &__soundcloud1 {
-      width: 70vw;
-      height: 15vh;
-      border-radius: 5px;
+      @include soundcloud-template;
+      width: 45vw;
+    }
+  }
+
+  @include breakpoint.desktop {
+    &__soundcloud2 {
+      @include soundcloud-template;
+      width: 30vw;
     }
   }
 
   &-image__wrapper {
     width: 0px;
   }
+
   @include breakpoint.tablet {
     &__title {
       font-size: 9vw;
-      //   padding-left: 5rem;
     }
   }
 }
 
-//hero image section
+@include breakpoint.desktop {
+  .hero {
+    &-img__container {
+      height: 40rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    &__soundcloud1 {
+      display: none;
+      border-radius: 5px;
+    }
+
+    &__soundcloud2 {
+      z-index: 200;
+    }
+  }
+}
+
 //shows
 .show__content {
   padding: 20px;
 }
-
-//footer
-
-//footer
-.footer {
-  background-color: $base-color;
-  color: $accent-color;
-  font-size: 16px;
-  // padding-top: 20px;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__left,
-  &__inner {
-    display: flex;
-    margin-top: 1.5rem;
-    padding: 1rem;
-  }
-  &__social--logos {
-    margin-left: 7rem;
-  }
-  &__facebook--logo,
-  &__twitter--logo {
-    padding-left: 10px;
-  }
-
-  &__container {
-    padding: 16px;
-    margin-left: 4rem;
-  }
-  &-contact__info {
-    padding-bottom: 20px;
-  }
-
-  &-contact__list {
-    list-style-type: none;
-    font-size: 1.1rem;
-    line-height: 2rem;
-  }
-
-  @include breakpoint.mobile {
-    &__logo {
-      display: none;
-    }
-  }
-  @include breakpoint.desktab {
-    &__logo--mobile {
-      display: none;
-    }
-  }
-}
-
-//footer
-
-@include breakpoint.desktab {
-  .footer {
-    &__right {
-      margin-right: 4rem;
-    }
-
-    &__social--logos {
-      margin-top: 0.6rem;
-    }
-    &__logo {
-      margin-right: 5rem;
-      padding-top: 2.5rem;
-      width: 9vw;
-    }
-    &-contact__info {
-      margin-right: 20px;
-      margin-left: 60px;
-      font-size: 14px;
-    }
-
-    &__copyright--list {
-      margin-left: 9.7rem;
-      padding-bottom: 3rem;
-      list-style-type: none;
-    }
-
-    //put into mixin
-    &__instagram--logo {
-      width: 30px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__facebook--logo {
-      width: 30px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__twitter--logo {
-      width: 43px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__title {
-      font-family: avenirnext-demi;
-      font-size: 2.4rem;
-      margin-left: 3.2rem;
-    }
-    &-contact__item {
-      padding-bottom: 20px;
-    }
-    &-contact__item--bold {
-      font-family: avenirnext-demi;
-      padding-bottom: 20px;
-    }
-  }
-}
-
-//footer
-@include breakpoint.tablet {
-  .footer {
-    &__container {
-      margin: 0;
-    }
-
-    &__inner {
-      overflow: hidden;
-      padding: 0;
-    }
-    &__header {
-      width: 97vw;
-      height: 10vh;
-      padding-bottom: 5rem;
-      // display: none;
-    }
-
-    &__title {
-      font-size: 2.7rem;
-      margin-left: 1.7rem;
-    }
-
-    &__right {
-      margin-right: 0;
-    }
-    &__left {
-      padding: 0;
-    }
-    &-contact__list,
-    &-contact__info {
-      font-size: 2vw;
-      margin-left: 1rem;
-    }
-    &__social--logos {
-      margin-left: 3rem;
-      margin-top: 0.7rem;
-    }
-
-    &__logo {
-      width: 15vw;
-      margin-right: 2rem;
-    }
-    &__copyright--list {
-      margin-left: 2.8rem;
-    }
-  }
-}
-
-@include breakpoint.mobile {
-  .footer {
-    &__inner {
-      display: contents;
-      padding: 0;
-    }
-
-    &__container {
-      margin-left: 0.5rem;
-    }
-
-    &__left,
-    &__header,
-    &__social--logos,
-    &__title {
-      display: block;
-      padding: 0;
-      margin: 0;
-    }
-
-    &__header {
-      width: 175px;
-      height: 160px;
-    }
-
-    &__social--logos,
-    &__title {
-      padding-bottom: 2rem;
-    }
-
-    &__title {
-      font-family: avenirnext-demi;
-      font-size: 2.2rem;
-    }
-
-    &-contact__item--bold {
-      font-family: avenirnext-demi;
-    }
-
-    &-contact__item,
-    &-contact__item--bold {
-      padding-bottom: 1rem;
-      overflow-wrap: anywhere;
-    }
-
-    &__instagram--logo {
-      width: 30px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__facebook--logo {
-      width: 30px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__twitter--logo {
-      width: 43px;
-      height: 30px;
-      margin-right: 1.3rem;
-    }
-
-    &__copyright {
-      padding: 1rem 0 1rem 1rem;
-    }
-
-    &__copyright--list {
-      padding: 0 1rem 1rem 1rem;
-      list-style-type: none;
-    }
-
-    &__logo--mobile {
-      width: 30vw;
-    }
-  }
-}
-
-//shows
 
 @include breakpoint.desktab {
   .shows {
@@ -527,9 +176,11 @@
     &__subtitle {
       display: none;
     }
+
     &__divider {
       display: none;
     }
+
     &__content--button {
       @include button-template;
       width: 13vw;
@@ -543,7 +194,9 @@
   @include breakpoint.tablet {
     .show__subtitles {
       font-size: 1.3rem;
+      font-family: AvenirNext-demi;
     }
+
     .shows {
       font-size: 1.5rem;
 
@@ -552,35 +205,43 @@
       }
     }
   }
+
   .show__subtitles {
     display: flex;
     justify-content: space-between;
-    width: 65%;
+    width: 75%;
     color: $base-color;
     padding: 0 2rem;
+    position: relative;
   }
 }
+
 @include breakpoint.desktop {
   .shows {
     &__content--button {
       width: 12vw;
     }
+
     &__content {
       width: 70%;
       margin-left: 25%;
     }
   }
+
   .show {
     &__title {
       font-size: 2rem;
       margin-left: 8rem;
       position: absolute;
     }
+
     &__subtitles {
       justify-content: space-evenly;
-      margin-left: 21rem;
+      margin-left: 12rem;
       padding: 2rem 0 2rem 2rem;
       font-family: AvenirNext-demi;
+      position: relative;
+      width: 70%;
     }
   }
 }
@@ -591,27 +252,28 @@
     color: $base-color;
     font-weight: 100;
     margin: 1rem;
+
     &__title {
       font-family: avenirnext-demi;
       margin-left: 1rem;
     }
+
     &__subtitle {
       color: $secondary-color;
-      font-size: 0.6rem;
+      font-size: 1rem;
       font-family: avenirnext-demi;
       line-height: 1.5rem;
       letter-spacing: 0.5px;
+      padding-bottom: 1rem;
     }
 
     &__content--date,
     &__content--venue,
     &__content--location {
       padding-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
-    // &__content {
-    //   margin: 2rem;
-    // }
     &__content--date {
       font-family: avenirnext-demi;
     }
@@ -626,12 +288,13 @@
     &__content--button {
       @include button-template;
       font-size: 1rem;
-      width: 60vw;
-      height: 9vh;
+      width: 85vw;
+      height: 7vh;
       font-family: avenirnext-demi;
       padding: 0;
     }
   }
+
   @include breakpoint.mobile {
     .show__subtitles {
       display: none;
@@ -645,6 +308,7 @@
   &__title {
     font-family: avenirnext-demi;
     padding: 2rem 0;
+    font-size: 2.5rem;
   }
 
   &__subtitles {

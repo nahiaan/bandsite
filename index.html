@@ -10,7 +10,6 @@
 
     <title>Document</title>
 </head>
-<!-- padding before headlines: 24px/ padding after headlines: 16px/ padding between components 16px-->
 
 <body>
 
@@ -35,7 +34,7 @@
         </section>
 
     </header>
-
+    <!--Article-->
     <section class="article">
         <h1 class="article__title">About the Musicians</h1>
         <div class="article-img__container">
@@ -80,7 +79,7 @@
             </p>
         </div>
     </section>
-
+    <!--Gallery-->
     <h1 class="gallery__title">Photo Gallery</h1>
     <section class="gallery">
         <figure class="gallery__item gallery__item--1">
@@ -119,13 +118,12 @@
             <img class="gallery__image" src="assets/Images/Photo-gallery-9.jpg" alt="" />
         </figure>
     </section>
-
-    <section class="form-wrapper">
+    <!--Form-->
+    <section class="form">
         <form class="form__box">
-            <h1>Join the Conversation</h1>
+            <h1 class="form__title">Join the Conversation</h1>
             <fieldset class="comment__content">
                 <div class="comment-img__container">
-                    <!-- <img src="assets/Images/Mohan-muruge.jpg" alt="profile Photo"> -->
                 </div>
                 <div class="comment-form__wrapper">
                     <label for="Name" class="comment__name">NAME</label>
@@ -134,9 +132,7 @@
                     <label for="Name" class="comment__box">COMMENT</label>
                     <textarea name="comment" id="comment-box" placeholder="Add a new comment"
                         class="comment__text--input"></textarea>
-                    <!-- <div class="comment-btn__wrapper"> -->
                     <button id="post" class="comment__button">COMMENT</button>
-                    <!-- </div> -->
                 </div>
             </fieldset>
             <p class="panel__error panel__error--hide"></p>
@@ -148,43 +144,8 @@
         </section>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--footer -->
-
     <footer class="footer">
-        <!-- <div class="footer__social">
-            <div class="footer__social--logos">
-                <h3 class="footer__title">Get in Touch</h3>
-                <img class="footer__instagram--logo" src="assets/Icons/SVG/Icon-instagram.svg">
-                <img class="footer__facebook--logo" src="assets/Icons/SVG/Icon-facebook.svg">
-                <img class="footer__twitter--logo" src="assets/Icons/SVG/Icon-twitter.svg">
-                <div class="footer__copyright">
-                    <img class="footer__logo" src="assets/Logo/Logo-bandsite.svg">
-                </div>
-            </div> -->
-
         <section class="footer__container">
             <div class="footer__header">
                 <div class="footer__left">
@@ -249,15 +210,3 @@
 </body>
 
 </html>
-
-<div class="divider">
-    <hr>
-</div>
-<div class="comment__wrapper">
-    <div class="comment__image"></div>
-    <div>
-        <h3 class="comment__name"></h3>
-        <span class="comment__date"></span>
-    </div>
-    <div class="comment__text"></div>
-</div>

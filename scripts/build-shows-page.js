@@ -1,55 +1,7 @@
-console.log("hello");
-
-const shows = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Tue Sept 21 2021 ",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Fri Oct 15 2021 ",
-    venue: "View Lounge ",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Sat Nov 06 2021 ",
-    venue: "Hyatt Agency ",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center ",
-    location: "San Francisco, CA",
-  },
-
-  {
-    date: "Wed Dec 15 2021 ",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
-console.log(shows);
-
 const createShowCard = (shows) => {
   const showCard = document.createElement("article");
   showCard.classList.add("shows");
 
-  // Add a wrapper for the show dates (desktop and mobile) to fix the alignment
   const showDateWrapper = document.createElement("div");
   const showDateTitle = document.createElement("h2");
   const showDate = document.createElement("h3");
@@ -64,10 +16,9 @@ const createShowCard = (shows) => {
   const showButton = document.createElement("button");
   const showDivider = document.createElement("hr");
 
-  // Add a class to the show date wrapper
   showDateWrapper.classList.add("shows__wrapper");
   showDateTitle.classList.add("shows__subtitle");
-  showVenueWrapper.classList.add("shows__wrapper"); // Add a class to the venue wrapper aswell
+  showVenueWrapper.classList.add("shows__wrapper");
   showVenueTitle.classList.add("shows__subtitle");
   showLocationTitle.classList.add("shows__subtitle");
   showDate.classList.add("shows__content--date");
@@ -77,27 +28,20 @@ const createShowCard = (shows) => {
   showDivider.classList.add("shows__divider");
 
   showDate.innerText = shows.date;
-  showVenue.innerText = shows.venue;
+  showVenue.innerText = shows.place;
   showLocation.innerText = shows.location;
   showButton.innerText = "BUY TICKETS";
   showDateTitle.innerText = "DATE";
   showLocationTitle.innerText = "VENUE";
   showVenueTitle.innerText = "LOCATION";
 
-  // Add the show date title to the showDateWrapper
   showDateWrapper.appendChild(showDateTitle);
   showDateWrapper.appendChild(showDate);
-
-  // Add the show date title to the showDateWrapper
   showVenueWrapper.appendChild(showVenue);
   showVenueWrapper.appendChild(showVenueTitle);
 
   showCard.appendChild(showDateWrapper);
-  // showCard.appendChild(showDateTitle);
-  // showCard.appendChild(showDate);
   showCard.appendChild(showLocationTitle);
-  // showCard.appendChild(showVenue);
-  // showCard.appendChild(showVenueTitle);
   showCard.appendChild(showVenueWrapper);
   showCard.appendChild(showLocation);
   showCard.appendChild(showButton);
@@ -105,17 +49,35 @@ const createShowCard = (shows) => {
 
   return showCard;
 };
-// this will be storing comments
 
-//this function will loop through all the comments
-//stores comments somewhere?
+//this function will loop through all the shows
 
 const renderShows = (showsArray) => {
   const myShowContainer = document.querySelector(".shows__content");
   myShowContainer.innerHTML = "";
   for (let i = 0; i < showsArray.length; i++) {
-    let showCard = createShowCard(shows[i]);
+    let showCard = createShowCard(showsArray[i]); //was shows b4, how showsArray
     myShowContainer.appendChild(showCard);
   }
 };
-renderShows(shows);
+// renderShows(shows);
+
+const BASE_URL = "https://project-1-api.herokuapp.com";
+const commentsUrl = "https://project-1-api.herokuapp.com/comments/";
+const showDatesUrl = "https://project-1-api.herokuapp.com/showdates/";
+const API_KEY = "api_key=f33b34df-6637-4d08-bc73-5c370dbe478d";
+
+const getShows = () => {
+  axios
+    .get(`${BASE_URL}/showdates?${API_KEY}`)
+    .then((resultOutput) => {
+      const showsArrayFromAPI = resultOutput.data;
+      console.log(showsArrayFromAPI);
+      renderShows(showsArrayFromAPI);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+getShows();

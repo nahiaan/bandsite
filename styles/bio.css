@@ -1,35 +1,4 @@
 /*media query variables */
-/*is like global css, put resets, mixins, and variables.
-example mixin:
-@mixin default-box ($color, $borderColor) {
-    color: $color;
-    border: 1px solid $borderColor;
-    clear: both;
-    display: block;
-    margin: 5px 0;
-    padding: 5px 10px;
-}
-{box-sizing: border-box;
-  ma
-
-
-$base-color: #323232;
-$secondary-color: #afafaf $accent-color;
-#FFFFFF
-
-$hover-color: #000000 
-$divider-color: #e1e1e1
-$background-color: #FAFAFA
-
-/*
-desktop and tablet font
-
-dsk-subheader-font: 
-dsk-body-font
-dsk-footer-font
-dsk-buttons-font
-dsk-header-font
-dsk-sec-header-font*/
 @font-face {
   font-family: "AvenirNext-demi";
   src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
@@ -70,96 +39,78 @@ dsk-sec-header-font*/
 /*footer copy*/
 /*labels and buttons*/
 /*FONT MIXINS*/
-/*examples of using mixins*/
 h1 {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
 }
 
-/*h2 {
-  @include font-source(-font-size, -line-height, -font-weight);
-
-  h6 {
-  @include font-source($h6-font-size, $h6-line-height, -weight);
+/*media query variables */
+@font-face {
+  font-family: "AvenirNext-demi";
+  src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
+  font-style: normal;
+  font-weight: 600;
 }
-}*/
+@font-face {
+  font-family: "AvenirNext-bold";
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "AvenirNext-regular";
+  src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+/*page header*/
+/*section header*/
+/*subheader*/
+/*body copy*/
+/*footer copy*/
+/*labels and buttons*/
+/*media queries*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: AvenirNext-regular;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .nav {
-    display: block;
-    padding: 0;
-  }
-  .nav__list {
-    font-size: 25px;
-  }
-  .nav__title {
-    width: 260px;
-  }
-  .nav__link:hover {
-    padding-bottom: 3.1rem;
-    border-bottom: 5px solid #fafafa;
-  }
+/*need a mixin for my section styling perhaps, 16px padding left and right after the hero image.*/
+/*FONT VARIABLES*/
+/*page header*/
+/*section header*/
+/*subheader*/
+/*body copy*/
+/*footer copy*/
+/*labels and buttons*/
+/*FONT MIXINS*/
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
 }
-@media only screen and (min-width: 768px) {
-  .nav {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    background-color: #323232;
-    padding: 37px;
-  }
-  .nav__list {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    margin-left: 10px;
-    font-size: 14px;
-    letter-spacing: 0.4px;
-  }
-  .nav__link:hover {
-    border-bottom: 3px solid #ffffff;
-    padding-bottom: 39px;
-  }
-  .nav__link {
-    text-decoration: none;
-    color: #ffffff;
-    margin-left: 10px;
-  }
-  .nav__title {
-    color: #ffffff;
-    font-family: avenirnext-regular;
-    font-weight: 100;
-    font-size: 22px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .nav__biography, .nav__shows {
-    font-size: 1.3rem;
-  }
-  .nav__biography {
-    font-family: AvenirNext-demi;
-  }
-  .nav__shows {
-    margin-left: 25px;
-    color: #e1e1e1;
-  }
+
+.nav__biography,
+.hero__title,
+.article__content--quote,
+.article__quote--author,
+.article__title,
+.article__content--title,
+.gallery__title,
+.footer__title,
+.footer-contact__item--bold,
+.comments__content--author,
+.form__box,
+.comment__button,
+.comment__name,
+.comment__box,
+.form__title {
+  font-family: AvenirNext-demi !important;
 }
-@media only screen and (min-width: 1279px) {
-  .nav {
-    padding: 37px 37px 37px 100px;
-  }
-  .nav__biography, .nav__shows {
-    font-size: 0.9rem;
-  }
-}
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 767px) {
   .nav {
     background-color: #323232;
   }
@@ -178,7 +129,12 @@ h1 {
   }
   .nav__biography {
     border-bottom: 4px solid #fafafa;
-    font-family: avenirnext-demi;
+  }
+  .nav__shows--bold {
+    font-family: AvenirNext-demi;
+  }
+  .nav__shows--border {
+    border-bottom: 4px solid #fafafa;
   }
   .nav__list {
     margin: 0;
@@ -196,191 +152,87 @@ h1 {
     letter-spacing: 1px;
   }
 }
-.hero-title__wrapper {
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-}
-.hero-img__container {
-  background-image: url(../assets/Images/hero-bio.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 19rem;
-  display: flex;
-}
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero .hero-img__container {
-    height: 45rem;
-    line-height: 2rem;
+  .nav {
+    display: block;
+    padding: 0;
+  }
+  .nav__link {
+    font-size: 22px;
+  }
+  .nav__list {
+    font-size: 25px;
+    display: block;
+  }
+  .nav__title {
+    width: 260px;
+    padding-top: 0;
+    margin-left: 0;
+  }
+  .nav__link:hover {
+    padding-bottom: 3.1rem;
+    border-bottom: 5px solid #fafafa;
   }
 }
-@media only screen and (min-width: 1279px) {
-  .hero .hero-img__container {
-    height: 44rem;
-    line-height: 2rem;
-  }
-}
-.hero__title {
-  color: #ffffff;
-  font-family: avenirNext-demi;
-  font-size: 8vw;
-  width: 70rem;
-  padding-left: 2rem;
-}
-@media only screen and (min-width: 1279px) {
-  .hero__title {
-    padding-left: 10rem;
-    font-size: 4.5vw;
-  }
-}
-.hero__opacity {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100vw;
-}
-.hero-image__wrapper {
-  width: 0px;
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__title {
-    width: 900px;
-    font-size: 9vw;
-    padding-left: 5rem;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__title {
-    width: 100vw;
-  }
-}
-.article {
-  padding: 16px;
-}
-.article__content {
-  line-height: 22px;
-  padding-bottom: 1rem;
-}
-.article-img {
-  max-width: 100%;
-  height: auto;
-  padding: 16px;
-}
-.article__content--quote {
-  line-height: 30px;
-  font-family: avenirnext-demi;
-  font-size: 18px;
-  color: #323232;
-  padding-bottom: 1rem;
-}
-.article__content--title {
-  font-size: 18px;
-  padding-top: 24px;
-}
-
 @media only screen and (min-width: 768px) {
-  .article-img__container {
-    padding: 0 115px;
-  }
-  .article__title {
-    font-family: avenirnext-demi;
-    font-size: 4.9vw;
-    color: #323232;
-    padding: 60px 0 40px 90px;
-  }
-  .article__wrapper {
+  .nav {
+    font-size: 18px;
     display: flex;
-    padding: 10px;
-    width: 70%;
     align-items: center;
-    margin: 0 auto;
+    background-color: #323232;
+    padding: 37px;
   }
-  .article__content {
-    margin-left: 30px;
-    color: #323232;
-    line-height: 24px;
+  .nav__shows--bold {
+    font-family: AvenirNext-demi;
   }
-  .article__content--title {
-    padding-top: 50px;
-    padding-left: 17.1vw;
-    font-family: avenirnext-demi;
-    font-size: 26px;
-    color: #323232;
-  }
-  .article__content--quote {
-    padding: 10px 230px;
-    width: 92%;
-    font-size: 23px;
-    line-height: 32px;
-  }
-  .article__quote--author {
-    padding: 15px 232px;
-    width: 92%;
-    font-size: 17px;
-    font-family: avenirnext-demi;
-    color: #323232;
-    line-height: 32px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .gallery {
-    background-color: #e1e1e1;
+  .nav__list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    list-style-type: none;
+    font-size: 14px;
+    letter-spacing: 0.4px;
   }
-  .gallery__item {
-    width: 30%;
-    padding-left: 1rem;
+  .nav__link:hover {
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 39px;
   }
-  .gallery__image {
-    padding-top: 0.5rem;
+  .nav__link, .nav__biography2 {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .nav__link {
+    margin-left: 25px;
+  }
+  .nav__title {
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 22px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .nav__biography, .nav__shows {
+    font-size: 1.3rem;
+  }
+  .nav__shows, .nav__shows--border {
+    margin-left: 25px;
+    color: #e1e1e1;
   }
 }
 @media only screen and (min-width: 1279px) {
-  .gallery {
-    padding: 50px 120px;
+  .nav {
+    padding: 37px 37px 37px 100px;
+  }
+  .nav__biography, .nav__shows {
+    font-size: 0.9rem;
+  }
+  .nav__link:hover {
+    border-bottom: 5px solid #ffffff;
+    padding-bottom: 35px;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .gallery {
-    padding: 40px 70px;
-  }
-}
-.gallery {
-  background-color: #fafafa;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.gallery__image {
-  max-width: 100%;
-  height: auto;
-  filter: grayscale(100%);
-  transition: 0.4s;
-}
-.gallery__image:hover {
-  filter: grayscale(0%);
-}
-@media only screen and (max-width: 768px) {
-  .gallery__image {
-    padding: 1rem 2.5rem;
-  }
-}
-
-.gallery__title {
-  font-size: 30px;
-  font-family: AvenirNext-demi;
-  color: #323232;
-  padding-top: 24px;
-  padding-left: 16px;
-  background-color: #fafafa;
-}
-
 .footer {
   background-color: #323232;
   color: #ffffff;
-  font-size: 16px;
 }
 .footer__header {
   display: flex;
@@ -394,9 +246,6 @@ h1 {
 .footer__social--logos {
   margin-left: 7rem;
 }
-.footer__facebook--logo, .footer__twitter--logo {
-  padding-left: 10px;
-}
 .footer__container {
   padding: 16px;
   margin-left: 4rem;
@@ -409,7 +258,7 @@ h1 {
   font-size: 1.1rem;
   line-height: 2rem;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .footer__logo {
     display: none;
   }
@@ -458,15 +307,10 @@ h1 {
     margin-right: 1.3rem;
   }
   .footer__title {
-    font-family: avenirnext-demi;
     font-size: 2.4rem;
     margin-left: 3.2rem;
   }
-  .footer-contact__item {
-    padding-bottom: 20px;
-  }
-  .footer-contact__item--bold {
-    font-family: avenirnext-demi;
+  .footer-contact__item, .footer-contact__item--bold {
     padding-bottom: 20px;
   }
 }
@@ -486,6 +330,7 @@ h1 {
   .footer__title {
     font-size: 2.7rem;
     margin-left: 1.7rem;
+    font-family: AvenirNext-demi !important;
   }
   .footer__right {
     margin-right: 0;
@@ -509,7 +354,7 @@ h1 {
     margin-left: 2.8rem;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .footer__inner {
     display: contents;
     padding: 0;
@@ -529,11 +374,7 @@ h1 {
     padding-bottom: 2rem;
   }
   .footer__title {
-    font-family: avenirnext-demi;
     font-size: 2.2rem;
-  }
-  .footer-contact__item--bold {
-    font-family: avenirnext-demi;
   }
   .footer-contact__item, .footer-contact__item--bold {
     padding-bottom: 1rem;
@@ -564,9 +405,267 @@ h1 {
     width: 30vw;
   }
 }
+@font-face {
+  font-family: "AvenirNext-demi";
+  src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "AvenirNext-bold";
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "AvenirNext-regular";
+  src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+/*page header*/
+/*section header*/
+/*subheader*/
+/*body copy*/
+/*footer copy*/
+/*labels and buttons*/
+/*media queries*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*need a mixin for my section styling perhaps, 16px padding left and right after the hero image.*/
+/*FONT VARIABLES*/
+/*page header*/
+/*section header*/
+/*subheader*/
+/*body copy*/
+/*footer copy*/
+/*labels and buttons*/
+/*FONT MIXINS*/
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: AvenirNext-regular;
+}
+
+.hero-title__wrapper {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+.hero-img__container {
+  background-image: url(../assets/Images/hero-bio.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 25rem;
+  display: flex;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero .hero-img__container {
+    height: 30rem;
+    line-height: 2rem;
+  }
+}
+@media only screen and (min-width: 1279px) {
+  .hero .hero-img__container {
+    height: 40rem;
+    line-height: 2rem;
+  }
+}
+.hero__title {
+  color: #ffffff;
+  font-size: 8vw;
+  width: 70rem;
+  padding-left: 2rem;
+}
+@media only screen and (min-width: 1279px) {
+  .hero__title {
+    padding-left: 10rem;
+    font-size: 4.5vw;
+  }
+}
+.hero__opacity {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+}
+.hero-image__wrapper {
+  width: 0px;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__title {
+    width: 900px;
+    font-size: 9vw;
+    padding-left: 5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__title {
+    width: 100vw;
+  }
+}
+.article {
+  padding: 16px;
+}
+.article__content {
+  line-height: 22px;
+  padding-bottom: 1rem;
+}
+.article-img {
+  max-width: 100%;
+  height: auto;
+  padding: 16px;
+}
+.article__content--quote {
+  line-height: 30px;
+  font-size: 18px;
+  color: #323232;
+  padding-bottom: 1rem;
+}
+.article__content--title {
+  font-size: 18px;
+  padding-top: 24px;
+}
+.article__title {
+  font-size: 2.5rem;
+  padding: 1rem;
+  color: #323232;
+}
+
+@media only screen and (min-width: 768px) {
+  .article-img__container {
+    padding: 0 115px;
+  }
+  .article__title {
+    padding: 60px 0 40px 90px;
+  }
+  .article__wrapper {
+    display: flex;
+    padding: 10px;
+    width: 70%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .article__content {
+    margin-left: 30px;
+    color: #323232;
+    line-height: 24px;
+  }
+  .article__content--title {
+    padding-top: 50px;
+    padding-left: 17.1vw;
+    font-size: 26px;
+    color: #323232;
+  }
+  .article__content--quote {
+    padding: 10px 230px;
+    width: 92%;
+    font-size: 23px;
+    line-height: 32px;
+  }
+  .article__quote--author {
+    padding: 15px 232px;
+    width: 92%;
+    font-size: 17px;
+    color: #323232;
+    line-height: 32px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .article__title {
+    font-size: 6vw;
+  }
+}
+@media only screen and (min-width: 1279px) {
+  .article__title {
+    font-size: 3vw;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .gallery {
+    background-color: #e1e1e1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 1.9rem;
+  }
+  .gallery__item {
+    width: 30%;
+    padding-left: 1.9rem;
+    padding-top: 0.9rem;
+  }
+  .gallery__image {
+    padding-top: 0.5rem;
+  }
+}
+.gallery {
+  background-color: #fafafa;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.gallery__image {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: 0.4s;
+}
+.gallery__image:hover {
+  filter: grayscale(0%);
+}
+
+@media only screen and (max-width: 767px) {
+  .gallery__image {
+    padding: 1rem 2.5rem;
+  }
+}
+.gallery__title {
+  font-size: 2.8rem;
+  color: #323232;
+  padding: 4rem 0 1rem 2.4rem;
+  background-color: #fafafa;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .gallery {
+    padding-top: 2rem;
+  }
+
+  .gallery__title {
+    padding-left: 4.2rem;
+  }
+}
+@media only screen and (min-width: 1279px) {
+  .gallery {
+    padding: 15px 80px 40px 50px;
+  }
+
+  .gallery__title {
+    padding-left: 9rem;
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .comment__box {
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .comment__button {
-    width: 20vw;
+    width: 24vw;
+    margin-left: 56vw;
   }
 }
 .comment__name--input,
@@ -616,11 +715,12 @@ h1 {
 .comment__button {
   background-color: #323232;
   color: #fafafa;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   border: 1px solid #323232;
   padding: 1rem;
   margin-bottom: 10px;
   font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 ::-moz-placeholder {
@@ -643,7 +743,6 @@ h1 {
 
 .comments {
   display: flex;
-  justify-content: space-between;
   padding: 2rem;
   border-bottom: 1px solid #e1e1e1;
 }
@@ -651,7 +750,7 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
-.comments-img__wrapper {
+.comments__content--image {
   background-image: url(/assets/Images/light-grey-background.png);
   width: 60px;
   height: 60px;
@@ -662,13 +761,13 @@ h1 {
 }
 .comments-content__wrapper {
   padding-left: 2rem;
+  flex-grow: 1;
 }
 .comments__content--date {
   color: #afafaf;
 }
 .comments__content--author {
   color: #323232;
-  font-family: avenirnext-demi;
   letter-spacing: 0.5px;
   padding-bottom: 1rem;
 }
@@ -676,8 +775,8 @@ h1 {
 @media only screen and (min-width: 1279px) {
   .comments {
     justify-content: inherit;
-    border-top: solid 1px #e1e1e1;
-    border-bottom: solid 1px #e1e1e1;
+    border-top: solid 0.5px #e1e1e1;
+    border-bottom: solid 0.5px #e1e1e1;
   }
 
   .comment__list {
@@ -693,9 +792,23 @@ h1 {
     margin-left: 22.5rem;
   }
 }
-.form__box h1 {
+.form__title {
   padding: 3rem;
   font-size: 2.2rem;
-  font-family: AvenirNext-demi;
   color: #323232;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .form__title {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 1279px) {
+  .form__title {
+    margin-left: 3rem;
+  }
+}
+
+.comments-image__wrapper {
+  flex-shrink: 0;
 }/*# sourceMappingURL=bio.css.map */

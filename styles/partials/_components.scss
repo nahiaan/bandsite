@@ -1,41 +1,407 @@
-/*global styling for whole site for nav, body, buttons, card section*/
+@use "breakpoints" as breakpoint;
+@use "_base.scss" as *;
 
-@mixin main-nav-desktab {
-  @media desktab {
-    @media only screen and (min-width: $tablet-width) {
-      @content;
+.nav__biography,
+.hero__title,
+.article__content--quote,
+.article__quote--author,
+.article__title,
+.article__content--title,
+.gallery__title,
+.footer__title,
+.footer-contact__item--bold,
+.comments__content--author,
+.form__box,
+.comment__button,
+.comment__name,
+.comment__box,
+.form__title {
+  font-family: AvenirNext-demi !important;
+}
+
+//navbar - mobile
+
+@include breakpoint.mobile {
+  .nav {
+    background-color: $base-color;
+
+    &__title {
+      padding-top: 5%;
+      width: 40%;
+      margin-left: 30%;
+    }
+
+    &__item {
+      width: 50vw;
+      padding-bottom: 25px;
+      padding-top: 20px;
+    }
+
+    &__item:hover {
+      border-bottom: 4px solid $background-color;
+    }
+
+    &__biography {
+      border-bottom: 4px solid $background-color;
+    }
+
+    &__shows--bold {
+      font-family: AvenirNext-demi;
+    }
+
+    &__shows--border {
+      border-bottom: 4px solid $background-color;
+    }
+
+    &__list {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__link {
+      color: $background-color;
+      text-decoration: none;
+      font-size: 22px;
+      border-bottom: 3px solid transparent;
+      letter-spacing: 1px;
     }
   }
 }
 
-@mixin header-nav($height, $linkmargin, $breakpoint: 800px) {
-  height: $height;
-  @media (max-width: $breakpoint) {
-    height: auto;
+@include breakpoint.tablet {
+  .nav {
+    display: block;
+    padding: 0;
+
+    &__link {
+      font-size: 22px;
+    }
+
+    &__list {
+      font-size: 25px;
+      display: block;
+    }
+
+    &__title {
+      width: 260px;
+      padding-top: 0;
+      margin-left: 0;
+    }
+
+    &__link:hover {
+      padding-bottom: 3.1rem;
+      border-bottom: 5px solid $background-color;
+    }
   }
-  ul {
-    margin: 0 0 0 0;
-    margin-left: 0;
-    padding-left: 0;
-    text-indent: 0;
-    li {
-      display: inline-block;
-      margin-left: 30px - $linkmargin;
-      margin-top: 0;
-      &:first-child {
-        margin-left: 0;
-      }
-      a {
-        display: block;
-        line-height: ($height - (2 * $linkmargin));
-        margin-top: $linkmargin;
-        margin-bottom: $linkmargin;
-        padding-left: $linkmargin;
-        padding-right: $linkmargin;
-        @media (max-width: $breakpoint) {
-          line-height: 40px;
-        }
-      }
+}
+
+@include breakpoint.desktab {
+  .nav {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    background-color: $base-color;
+    padding: 37px;
+
+    &__shows--bold {
+      font-family: AvenirNext-demi;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      // margin-left: 10px;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+    }
+
+    &__link:hover {
+      border-bottom: 3px solid $accent-color;
+      padding-bottom: 39px;
+    }
+
+    &__link,
+    &__biography2 {
+      text-decoration: none;
+      color: $accent-color;
+    }
+
+    &__link {
+      margin-left: 25px;
+    }
+
+    &__title {
+      color: $accent-color;
+      font-weight: 100;
+      font-size: 22px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    &__biography,
+    &__shows {
+      font-size: 1.3rem;
+    }
+
+    &__shows,
+    &__shows--border {
+      margin-left: 25px;
+      color: $divider-color;
+    }
+  }
+}
+
+@include breakpoint.desktop {
+  .nav {
+    padding: 37px 37px 37px 100px;
+
+    &__biography,
+    &__shows {
+      font-size: 0.9rem;
+    }
+
+    &__link:hover {
+      border-bottom: 5px solid $accent-color;
+      padding-bottom: 35px;
+    }
+  }
+}
+
+//footer
+.footer {
+  background-color: $base-color;
+  color: $accent-color;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left,
+  &__inner {
+    display: flex;
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  &__social--logos {
+    margin-left: 7rem;
+  }
+
+  &__container {
+    padding: 16px;
+    margin-left: 4rem;
+  }
+
+  &-contact__info {
+    padding-bottom: 20px;
+  }
+
+  &-contact__list {
+    list-style-type: none;
+    font-size: 1.1rem;
+    line-height: 2rem;
+  }
+
+  @include breakpoint.mobile {
+    &__logo {
+      display: none;
+    }
+  }
+
+  @include breakpoint.desktab {
+    &__logo--mobile {
+      display: none;
+    }
+  }
+}
+
+//desktop and tablet styling
+@include breakpoint.desktab {
+  .footer {
+    &__right {
+      margin-right: 4rem;
+    }
+
+    &__social--logos {
+      margin-top: 0.6rem;
+    }
+
+    &__logo {
+      margin-right: 5rem;
+      padding-top: 2.5rem;
+      width: 9vw;
+    }
+
+    &-contact__info {
+      margin-right: 20px;
+      margin-left: 60px;
+      font-size: 14px;
+    }
+
+    &__copyright--list {
+      margin-left: 9.7rem;
+      padding-bottom: 3rem;
+      list-style-type: none;
+    }
+
+    &__instagram--logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__facebook--logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__twitter--logo {
+      width: 43px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__title {
+      font-size: 2.4rem;
+      margin-left: 3.2rem;
+    }
+
+    &-contact__item,
+    &-contact__item--bold {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+// tablet styling
+@include breakpoint.tablet {
+  .footer {
+    &__container {
+      margin: 0;
+    }
+
+    &__inner {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    &__header {
+      width: 97vw;
+      height: 10vh;
+      padding-bottom: 5rem;
+    }
+
+    &__title {
+      font-size: 2.7rem;
+      margin-left: 1.7rem;
+      font-family: AvenirNext-demi !important;
+    }
+
+    &__right {
+      margin-right: 0;
+    }
+
+    &__left {
+      padding: 0;
+    }
+
+    &-contact__list,
+    &-contact__info {
+      font-size: 2vw;
+      margin-left: 1rem;
+    }
+
+    &__social--logos {
+      margin-left: 3rem;
+      margin-top: 0.7rem;
+    }
+
+    &__logo {
+      width: 15vw;
+      margin-right: 2rem;
+    }
+
+    &__copyright--list {
+      margin-left: 2.8rem;
+    }
+  }
+}
+
+//mobile styling
+@include breakpoint.mobile {
+  .footer {
+    &__inner {
+      display: contents;
+      padding: 0;
+    }
+
+    &__container {
+      margin-left: 0.5rem;
+    }
+
+    &__left,
+    &__header,
+    &__social--logos,
+    &__title {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__header {
+      height: 140px;
+    }
+
+    &__social--logos,
+    &__title {
+      padding-bottom: 2rem;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &-contact__item,
+    &-contact__item--bold {
+      padding-bottom: 1rem;
+    }
+
+    &__instagram--logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__facebook--logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__twitter--logo {
+      width: 43px;
+      height: 30px;
+      margin-right: 1.3rem;
+    }
+
+    &__copyright {
+      padding: 1rem 0 1rem 1rem;
+    }
+
+    &__copyright--list {
+      padding: 0 1rem 1rem 1rem;
+      list-style-type: none;
+    }
+
+    &__logo--mobile {
+      width: 30vw;
     }
   }
 }
